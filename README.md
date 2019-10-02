@@ -22,13 +22,24 @@ Sonar Scanner для GitLab CI/CD.
 stages:
   - sonarqube
 
+variables:
+  MAJOR: "10.3.1"
+  PATH_SRC: "src/"
+
 sonarqube:
   stage: sonarqube
   image:
     name: ${CI_REGISTRY}/devops/sonar-scanner-cli:latest
     entrypoint: [""]
   script:
+    - export PROJECT_VERSION="${MAJOR}.$(grep -oPm1 "(?<=<VERSION>)[^<]+" ${PATH_SRC}VERSION)"
     - export SONAR_SCANNER_OPTS="-Xmx6g"
     - sonar-scanner
+      -D"sonar.projectVersion=${PROJECT_VERSION}"
       -D"sonar.login=${SONAR_LOGIN}"
+  only:
+    - develop
+  tags:
+    - docker
+  when: manual
 ```
