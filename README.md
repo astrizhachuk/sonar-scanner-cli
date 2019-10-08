@@ -16,7 +16,7 @@ Sonar Scanner для GitLab CI/CD.
 
 * SONAR_SCANNER_VERSION="4.0.0.1744" - версия Sonar Scanner
 
-### Пример
+### Пример .gitlab-ci.yml
 
 ```yml
 stages:
@@ -38,7 +38,8 @@ sonarqube:
       -D"sonar.projectVersion=${PROJECT_VERSION}"
       -D"sonar.login=${SONAR_LOGIN}"
   only:
-    - develop
+    refs:
+      - develop
   tags:
     - docker
   when: manual
