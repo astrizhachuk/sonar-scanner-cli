@@ -26,7 +26,7 @@ stages:
 variables:
   MAJOR: "10.3.1"
   PATH_SRC: "src/"
-
+  
 sonarqube:
   stage: sonarqube
   image:
@@ -37,10 +37,13 @@ sonarqube:
     - export SONAR_SCANNER_OPTS="-Xmx6g"
     - sonar-scanner
       -D"sonar.projectVersion=${PROJECT_VERSION}"
+      -D"sonar.branch.name=${CI_COMMIT_REF_NAME}"
+      -D"sonar.branch.target=develop"
       -D"sonar.login=${SONAR_LOGIN}"
   only:
-    refs:
-      - develop
+     refs:
+       - develop
+       - /^feature\/.*$/
   tags:
     - docker
   when: manual
