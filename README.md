@@ -2,6 +2,10 @@
 
 Sonar Scanner для GitLab CI/CD.
 
+## DOCKER HUB
+
+`docker pull astrizhachuk/sonar-scanner-cli:latest`
+
 ## FROM
 
 * adoptopenjdk:14-hotspot
@@ -15,9 +19,9 @@ Sonar Scanner для GitLab CI/CD.
 
 ## ENV
 
-* SONAR_SCANNER_VERSION="4.3.0.2102" - версия Sonar Scanner
+* SONAR_SCANNER_VERSION="4.3.0.2102" - version of Sonar Scanner
 
-### Пример .gitlab-ci.yml
+### EXAMPLE .gitlab-ci.yml
 
 ```yml
 stages:
