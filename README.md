@@ -4,17 +4,18 @@ Sonar Scanner для GitLab CI/CD.
 
 ## FROM
 
-* openjdk:11-jre-slim
+* adoptopenjdk:14-hotspot
 
 ## ADD
 
 * curl
-* unzip
 * git
+* openssh-client
+* unzip
 
 ## ENV
 
-* SONAR_SCANNER_VERSION="4.0.0.1744" - версия Sonar Scanner
+* SONAR_SCANNER_VERSION="4.3.0.2102" - версия Sonar Scanner
 
 ### Пример .gitlab-ci.yml
 
