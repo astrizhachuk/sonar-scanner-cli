@@ -4,7 +4,14 @@ LABEL author.name="Alexander Strizhachuk"
 LABEL author.email="strizhhh@mail.ru"
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends curl unzip git
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+        curl \
+        git \
+        openssh-client \
+        unzip \
+    && rm -rf  \
+        /var/lib/apt/lists/* \
+        /var/cache/debconf
 
 ENV TZ=Europe/Moscow \
     SONAR_SCANNER_VERSION="4.3.0.2102" \
