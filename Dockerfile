@@ -7,7 +7,7 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends curl unzip git
 
 ENV TZ=Europe/Moscow \
-    SONAR_SCANNER_VERSION="4.0.0.1744" \
+    SONAR_SCANNER_VERSION="4.3.0.2102" \
     SONAR_SCANNER_HOME=/usr/lib/sonar-scanner
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
