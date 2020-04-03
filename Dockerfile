@@ -1,4 +1,4 @@
-FROM openjdk:11-jre-slim
+FROM adoptopenjdk:14-hotspot
 
 LABEL author.name="Alexander Strizhachuk"
 LABEL author.email="strizhhh@mail.ru"
@@ -19,7 +19,7 @@ RUN curl --insecure -o ./sonarscanner.zip -L https://binaries.sonarsource.com/Di
 	mv sonar-scanner-${SONAR_SCANNER_VERSION}-linux /usr/lib/sonar-scanner && \
 	ln -s /usr/lib/sonar-scanner/bin/sonar-scanner /usr/local/bin/sonar-scanner
 
-#   ensure Sonar uses the provided Java for musl instead of a borked glibc one
+#   ensure Sonar uses the provided Java instead of a embedded one
 RUN sed -i 's/use_embedded_jre=true/use_embedded_jre=false/g' /usr/lib/sonar-scanner/bin/sonar-scanner
 
 ENTRYPOINT ["sonar-scanner"] 
