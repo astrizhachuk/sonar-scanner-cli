@@ -1,7 +1,6 @@
 FROM adoptopenjdk:14-hotspot
 
-LABEL author.name="Alexander Strizhachuk"
-LABEL author.email="strizhhh@mail.ru"
+LABEL maintainers = "strizhhh@mail.ru, nixel2007@gmail.com"
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
