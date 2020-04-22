@@ -1,6 +1,6 @@
-# Sonar Scanner for GitLab CI/CD
+# Sonar Scanner for GitLab CI/CD and Jenkins
 
-Sonar Scanner для GitLab CI/CD.
+Sonar Scanner для GitLab CI/CD и Jenkins.
 
 ## DOCKER HUB
 
