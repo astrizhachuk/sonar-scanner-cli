@@ -30,6 +30,6 @@ push:
     - docker pull $CONTAINER_TEST_IMAGE
     - docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE
     - docker push $CONTAINER_RELEASE_IMAGE
-  only:
-    refs:
-      - master
+  rules:
+    - if: '$CI_BUILD_REF_SLUG == "master"'
+      when: always
