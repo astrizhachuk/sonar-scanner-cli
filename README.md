@@ -45,7 +45,7 @@ sonarqube:
       -D"sonar.branch.target=develop"
       -D"sonar.login=${SONAR_LOGIN}"
   rules:
-    - if: '$CI_BUILD_REF_SLUG == "develop" || $CI_BUILD_REF_SLUG == /^feature\/.*$/'
+    - if: '$CI_COMMIT_REF_SLUG == "develop" || $CI_COMMIT_REF_SLUG == /^feature\/.*$/'
       when: manual
   tags:
     - docker
