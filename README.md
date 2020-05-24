@@ -6,22 +6,30 @@ Sonar Scanner для GitLab CI/CD и Jenkins.
 
 `docker pull astrizhachuk/sonar-scanner-cli:latest`
 
-## FROM
+## TAGS AND RESPECTIVE DOCKERFILE LINKS
+
+* [4.3.0.2102, latest](https://github.com/astrizhachuk/sonar-scanner-cli/blob/master/Dockerfile)
+
+* [4.0.0.1744](https://github.com/astrizhachuk/sonar-scanner-cli/blob/3bd8fa47c61df7f5ec9cdfd2bed3da4d4dff6127/Dockerfile)
+
+## DESCRIPTION
+
+### FROM
 
 * adoptopenjdk:14-hotspot
 
-## ADD
+### ADD
 
 * curl
 * git
 * openssh-client
 * unzip
 
-## ENV
+### ENV
 
 * SONAR_SCANNER_VERSION="4.3.0.2102" - version of Sonar Scanner
 
-### EXAMPLE .gitlab-ci.yml
+## EXAMPLE .gitlab-ci.yml
 
 ```yml
 stages:
