@@ -18,7 +18,7 @@ Sonar Scanner для GitLab CI/CD и Jenkins.
 
 ### FROM
 
-* adoptopenjdk:14-hotspot
+* adoptopenjdk:16-hotspot
 
 ### ADD
 
