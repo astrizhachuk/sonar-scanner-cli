@@ -1,4 +1,4 @@
-FROM adoptopenjdk:14-hotspot
+FROM adoptopenjdk:16-hotspot
 
 LABEL maintainers = "strizhhh@mail.ru, nixel2007@gmail.com"
 
