@@ -11,6 +11,7 @@ stages:
 variables:
   CONTAINER_TEST_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
   CONTAINER_RELEASE_IMAGE: $CI_REGISTRY_IMAGE:latest
+  CI_DEBUG_TRACE: "true"
 
 .common_rules_onTag: &common_rules_onTag
   rules:
@@ -36,4 +37,6 @@ push:
     - docker pull $CONTAINER_TEST_IMAGE
     - docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE
     - docker push $CONTAINER_RELEASE_IMAGE
-  <<: *common_rules_onTag
+  rules:
+    - if: '$CI_COMMIT_TAG != null'
+      when: manual
