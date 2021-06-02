@@ -9,7 +9,7 @@ stages:
   - release
 
 variables:
-  CONTAINER_TEST_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+  CONTAINER_TEST_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
   CONTAINER_RELEASE_IMAGE: $CI_REGISTRY_IMAGE:latest
 
 build:
@@ -31,5 +31,5 @@ push:
     - docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE
     - docker push $CONTAINER_RELEASE_IMAGE
   rules:
-    - if: '$CI_COMMIT_REF_SLUG == "master"'
-      when: always
+    - if: '$CI_COMMIT_TAG != null'
+
